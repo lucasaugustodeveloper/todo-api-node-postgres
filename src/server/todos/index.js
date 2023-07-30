@@ -13,6 +13,23 @@ const add = (todo) => {
   return ok('success')
 }
 
+const findAll = () => {
+  const mock = [
+    {
+      id: '32lrnjn',
+      title: 'title',
+      description: 'description',
+      completed: false,
+    },
+  ]
+
+  return {
+    statusCode: 200,
+    body: mock,
+  }
+}
+
 module.exports = {
   add,
+  findAll,
 }

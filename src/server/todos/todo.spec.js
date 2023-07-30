@@ -1,4 +1,4 @@
-const { add } = require('./index')
+const { add, findAll } = require('./index')
 const { missingParamsError } = require('../../helpers')
 
 describe('todos', () => {
@@ -31,5 +31,12 @@ describe('todos', () => {
 
     expect(add(body).statusCode).toEqual(200)
     expect(add(body).body).toEqual('success')
+  })
+
+  it('should return all todos', () => {
+    const todos = findAll()
+
+    expect(todos.statusCode).toEqual(200)
+    expect(todos.body).not.toBeNull()
   })
 })
