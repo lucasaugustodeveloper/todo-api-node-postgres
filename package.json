@@ -1,7 +1,7 @@
 {
   "name": "todo-api-node-postgres",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/main.js",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.3.1",
@@ -20,6 +20,11 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^5.0.0",
     "nodemon": "^3.0.1",
+    "pino-pretty": "^10.2.0",
     "prettier": "^3.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "knex": "knex"
   }
 }
