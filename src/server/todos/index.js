@@ -29,7 +29,22 @@ const findAll = () => {
   }
 }
 
+const remove = (id) => {
+  if (!id) {
+    return badRequest(missingParamsError('id'))
+  }
+
+  return {
+    statusCode: 200,
+    body: {
+      id,
+      title: 'title',
+    },
+  }
+}
+
 module.exports = {
   add,
   findAll,
+  remove,
 }

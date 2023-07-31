@@ -1,4 +1,4 @@
-const { add, findAll } = require('./index')
+const { add, findAll, remove } = require('./index')
 const { missingParamsError } = require('../../helpers')
 
 describe('todos', () => {
@@ -38,5 +38,20 @@ describe('todos', () => {
 
     expect(todos.statusCode).toEqual(200)
     expect(todos.body).not.toBeNull()
+  })
+
+  it('should return 200 for remove todo with pass id', () => {
+    const response = {
+      id: 'e11fd686-6fe0-5cd9-ac0c-0a21223cc2dc',
+      title: 'title',
+    }
+
+    expect(remove(response.id).statusCode).toBe(200);
+    expect(remove(response.id).body).toEqual(response);
+  })
+
+  it('should return 400 without fails pass id', () => {
+    expect(remove().statusCode).toBe(500);
+    // expect(remove(response.id).body).toEqual(response);
   })
 })
