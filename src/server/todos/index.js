@@ -34,17 +34,20 @@ const remove = (id) => {
     return badRequest(missingParamsError('id'))
   }
 
-  return {
-    statusCode: 200,
-    body: {
-      id,
-      title: 'title',
-    },
+  return ok('success')
+}
+
+const update = (id) => {
+  if (!id) {
+    return badRequest(missingParamsError('id'))
   }
+
+  return ok('success')
 }
 
 module.exports = {
   add,
   findAll,
   remove,
+  update,
 }
