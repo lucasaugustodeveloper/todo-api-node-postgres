@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 const { badRequest, missingParamsError, ok } = require('../../helpers')
+const { getAllTodos } = require('../../services/todo')
 
 const add = (todo) => {
   const requiredFields = ['title', 'description']
@@ -13,21 +14,10 @@ const add = (todo) => {
   return ok('success')
 }
 
-const findAll = () => {
-  const mock = [
-    {
-      id: '32lrnjn',
-      title: 'title',
-      description: 'description',
-      completed: false,
-    },
-  ]
-
-  return {
-    statusCode: 200,
-    body: mock,
-  }
-}
+const findAll = () => ({
+  statusCode: 200,
+  body: getAllTodos,
+})
 
 const remove = (id) => {
   if (!id) {
