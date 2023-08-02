@@ -4,7 +4,7 @@ const knexfile = require('../../../knexfile')
 const db = knex(knexfile[process.env.NODE_ENV])
 
 const getAllTodos = db('todos')
-  .select('id', 'title', 'description')
+  .select('id', 'title', 'description', 'completed')
   .then((todos) => todos)
 
 module.exports = {
