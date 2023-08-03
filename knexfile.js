@@ -1,7 +1,6 @@
 require('dotenv').config()
 
 const path = require('path')
-const knex = require('knex')
 
 const environment = {
   development: {
@@ -70,4 +69,4 @@ const environment = {
   },
 }
 
-module.exports = (env) => knex(environment[process.env.NODE_ENV])
+module.exports = require('knex')(environment[process.env.NODE_ENV])
