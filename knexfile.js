@@ -1,8 +1,9 @@
 require('dotenv').config()
 
 const path = require('path')
+const knex = require('knex')
 
-module.exports = {
+const environment = {
   development: {
     client: 'pg',
     connection: {
@@ -68,3 +69,5 @@ module.exports = {
     useNullAsDefault: true,
   },
 }
+
+module.exports = (env) => knex(environment[process.env.NODE_ENV])
