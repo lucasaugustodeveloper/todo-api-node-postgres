@@ -1,4 +1,4 @@
-const { findAll } = require('../../server/todos')
+const { findAll, add } = require('../../server/todos')
 
 const todos = (server) => {
   server.get('/todos', async () => ({
@@ -6,10 +6,7 @@ const todos = (server) => {
   }))
 
   server.post('/todos', (req, reply) => {
-    reply.send({
-      ...req.body,
-      message: 'post url',
-    })
+    reply.send(add(req.body))
   })
 }
 
