@@ -33,8 +33,8 @@ describe('todos', () => {
     expect(add(body).body).toEqual('success')
   })
 
-  it('should return all todos', () => {
-    const todos = findAll()
+  it('should return all todos', async () => {
+    const todos = await findAll
 
     expect(todos.statusCode).toEqual(200)
     expect(todos.body).not.toBeNull()

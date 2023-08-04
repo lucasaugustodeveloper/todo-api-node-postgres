@@ -1,8 +1,8 @@
-const { getAllTodos } = require('../../services/todo')
+const { findAll } = require('../../server/todos')
 
 const todos = (server) => {
   server.get('/todos', async () => ({
-    todos: await getAllTodos,
+    todos: await findAll,
   }))
 
   server.post('/todos', (req, reply) => {

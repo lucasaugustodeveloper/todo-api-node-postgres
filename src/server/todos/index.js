@@ -16,10 +16,10 @@ const add = (todo) => {
   return ok('success')
 }
 
-const findAll = () => ({
+const findAll = (async () => ({
   statusCode: 200,
-  body: getAllTodos,
-})
+  body: await getAllTodos,
+}))()
 
 const remove = (id) => {
   if (!id) {
